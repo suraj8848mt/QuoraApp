@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
     'crispy_forms',
-    'users'
+    'users',
+    'questions',
 ]
 
 # DEBUG TOOLBAR SETTINGS
@@ -159,3 +160,13 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = 'none',
 
 ACCOUNT_EMAIL_REQUIRED = (True,)
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
